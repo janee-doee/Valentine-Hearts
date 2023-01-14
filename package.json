@@ -1,0 +1,26 @@
+{
+  "name": "valentine-hearts",
+  "version": "1.0.0",
+  "description": "Valentine hearts modal animation",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janee-doee/Valentine-Hearts.git"
+  },
+  "keywords": [
+    "valentine",
+    "hearts",
+    "css",
+    "html",
+    "design"
+  ],
+  "author": "janee-doee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janee-doee/Valentine-Hearts/issues"
+  },
+  "homepage": "https://github.com/janee-doee/Valentine-Hearts#readme"
+}

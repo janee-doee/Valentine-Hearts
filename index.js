@@ -1,0 +1,570 @@
+const converted = {
+    body: {
+      background: "black",
+      height: "100vh",
+      overflow: "hidden",
+      display: "flex",
+      fontFamily: '"Anton", sans-serif',
+      justifyContent: "center",
+      alignItems: "center",
+      perspective: "1300px"
+    },
+    div: { position: "absolute", transformStyle: "preserve-3d" },
+    "#chocolate_rains": { transform: "rotateX(-15deg)" },
+    ".heart .ring": {
+      width: "300px",
+      height: "300px",
+      borderRadius: "100%",
+      opacity: 0,
+      border: "1px solid rgb(219 62 177)",
+      filter: "brightness(2)"
+    },
+    ".heart .left": {
+      left: "-20px",
+      width: "20px",
+      height: "20px",
+      background: "#fb86db",
+      borderRadius: "100%",
+      transformOrigin: "100% 0"
+    },
+    ".heart .left::before": {
+      content: '""',
+      position: "absolute",
+      top: "10px",
+      width: "20px",
+      height: "25px",
+      background: "#fb86db",
+      borderRadius: "0 0 0 100%"
+    },
+    ".heart .right": {
+      width: "20px",
+      height: "20px",
+      background: "#fb86db",
+      borderRadius: "100%",
+      transformOrigin: "0 0"
+    },
+    ".heart .right::before": {
+      content: '""',
+      position: "absolute",
+      top: "10px",
+      width: "20px",
+      height: "25px",
+      background: "#fb86db",
+      borderRadius: "0 0 100% 0"
+    },
+    ".heart .movable": { opacity: 0 },
+    ".heart .reverse": {
+      transform: "translateY(70px) rotateZ(180deg)",
+      opacity: 0.1
+    },
+    ".heart .reverse .left, .heart .reverse .right": { opacity: 0.5 },
+    ".heart:nth-child(1)": {
+      transform: "translateX(410px) translateZ(-4px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(1) .movable": {
+      WebkitAnimation: "drop 5000ms 825ms linear infinite",
+      animation: "drop 5000ms 825ms linear infinite"
+    },
+    ".heart:nth-child(1) .ring": {
+      WebkitAnimation: "wave 5000ms 4725ms ease-out infinite",
+      animation: "wave 5000ms 4725ms ease-out infinite"
+    },
+    ".heart:nth-child(1) .inner": {
+      WebkitAnimation: "rotation 4202ms linear infinite",
+      animation: "rotation 4202ms linear infinite"
+    },
+    ".heart:nth-child(2)": {
+      transform: "translateX(71px) translateZ(-222px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(2) .movable": {
+      WebkitAnimation: "drop 5000ms -2252ms linear infinite",
+      animation: "drop 5000ms -2252ms linear infinite"
+    },
+    ".heart:nth-child(2) .ring": {
+      WebkitAnimation: "wave 5000ms 1648ms ease-out infinite",
+      animation: "wave 5000ms 1648ms ease-out infinite"
+    },
+    ".heart:nth-child(2) .inner": {
+      WebkitAnimation: "rotation 3524ms linear infinite",
+      animation: "rotation 3524ms linear infinite"
+    },
+    ".heart:nth-child(3)": {
+      transform: "translateX(-148px) translateZ(-491px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(3) .movable": {
+      WebkitAnimation: "drop 5000ms -391ms linear infinite",
+      animation: "drop 5000ms -391ms linear infinite"
+    },
+    ".heart:nth-child(3) .ring": {
+      WebkitAnimation: "wave 5000ms 3509ms ease-out infinite",
+      animation: "wave 5000ms 3509ms ease-out infinite"
+    },
+    ".heart:nth-child(3) .inner": {
+      WebkitAnimation: "rotation 3590ms linear infinite",
+      animation: "rotation 3590ms linear infinite"
+    },
+    ".heart:nth-child(4)": {
+      transform: "translateX(-368px) translateZ(-238px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(4) .movable": {
+      WebkitAnimation: "drop 5000ms -2492ms linear infinite",
+      animation: "drop 5000ms -2492ms linear infinite"
+    },
+    ".heart:nth-child(4) .ring": {
+      WebkitAnimation: "wave 5000ms 1408ms ease-out infinite",
+      animation: "wave 5000ms 1408ms ease-out infinite"
+    },
+    ".heart:nth-child(4) .inner": {
+      WebkitAnimation: "rotation 2121ms linear infinite",
+      animation: "rotation 2121ms linear infinite"
+    },
+    ".heart:nth-child(5)": {
+      transform: "translateX(-187px) translateZ(770px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(5) .movable": {
+      WebkitAnimation: "drop 5000ms -169ms linear infinite",
+      animation: "drop 5000ms -169ms linear infinite"
+    },
+    ".heart:nth-child(5) .ring": {
+      WebkitAnimation: "wave 5000ms 3731ms ease-out infinite",
+      animation: "wave 5000ms 3731ms ease-out infinite"
+    },
+    ".heart:nth-child(5) .inner": {
+      WebkitAnimation: "rotation 2224ms linear infinite",
+      animation: "rotation 2224ms linear infinite"
+    },
+    ".heart:nth-child(6)": {
+      transform: "translateX(-204px) translateZ(-117px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(6) .movable": {
+      WebkitAnimation: "drop 5000ms 1957ms linear infinite",
+      animation: "drop 5000ms 1957ms linear infinite"
+    },
+    ".heart:nth-child(6) .ring": {
+      WebkitAnimation: "wave 5000ms 5857ms ease-out infinite",
+      animation: "wave 5000ms 5857ms ease-out infinite"
+    },
+    ".heart:nth-child(6) .inner": {
+      WebkitAnimation: "rotation 3759ms linear infinite",
+      animation: "rotation 3759ms linear infinite"
+    },
+    ".heart:nth-child(7)": {
+      transform: "translateX(368px) translateZ(-253px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(7) .movable": {
+      WebkitAnimation: "drop 5000ms -2282ms linear infinite",
+      animation: "drop 5000ms -2282ms linear infinite"
+    },
+    ".heart:nth-child(7) .ring": {
+      WebkitAnimation: "wave 5000ms 1618ms ease-out infinite",
+      animation: "wave 5000ms 1618ms ease-out infinite"
+    },
+    ".heart:nth-child(7) .inner": {
+      WebkitAnimation: "rotation 2993ms linear infinite",
+      animation: "rotation 2993ms linear infinite"
+    },
+    ".heart:nth-child(8)": {
+      transform: "translateX(-170px) translateZ(-209px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(8) .movable": {
+      WebkitAnimation: "drop 5000ms -2268ms linear infinite",
+      animation: "drop 5000ms -2268ms linear infinite"
+    },
+    ".heart:nth-child(8) .ring": {
+      WebkitAnimation: "wave 5000ms 1632ms ease-out infinite",
+      animation: "wave 5000ms 1632ms ease-out infinite"
+    },
+    ".heart:nth-child(8) .inner": {
+      WebkitAnimation: "rotation 4105ms linear infinite",
+      animation: "rotation 4105ms linear infinite"
+    },
+    ".heart:nth-child(9)": {
+      transform: "translateX(-227px) translateZ(-186px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(9) .movable": {
+      WebkitAnimation: "drop 5000ms 1837ms linear infinite",
+      animation: "drop 5000ms 1837ms linear infinite"
+    },
+    ".heart:nth-child(9) .ring": {
+      WebkitAnimation: "wave 5000ms 5737ms ease-out infinite",
+      animation: "wave 5000ms 5737ms ease-out infinite"
+    },
+    ".heart:nth-child(9) .inner": {
+      WebkitAnimation: "rotation 4111ms linear infinite",
+      animation: "rotation 4111ms linear infinite"
+    },
+    ".heart:nth-child(10)": {
+      transform: "translateX(-320px) translateZ(-495px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(10) .movable": {
+      WebkitAnimation: "drop 5000ms -1079ms linear infinite",
+      animation: "drop 5000ms -1079ms linear infinite"
+    },
+    ".heart:nth-child(10) .ring": {
+      WebkitAnimation: "wave 5000ms 2821ms ease-out infinite",
+      animation: "wave 5000ms 2821ms ease-out infinite"
+    },
+    ".heart:nth-child(10) .inner": {
+      WebkitAnimation: "rotation 2632ms linear infinite",
+      animation: "rotation 2632ms linear infinite"
+    },
+    ".heart:nth-child(11)": {
+      transform: "translateX(200px) translateZ(-34px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(11) .movable": {
+      WebkitAnimation: "drop 5000ms -1420ms linear infinite",
+      animation: "drop 5000ms -1420ms linear infinite"
+    },
+    ".heart:nth-child(11) .ring": {
+      WebkitAnimation: "wave 5000ms 2480ms ease-out infinite",
+      animation: "wave 5000ms 2480ms ease-out infinite"
+    },
+    ".heart:nth-child(11) .inner": {
+      WebkitAnimation: "rotation 4853ms linear infinite",
+      animation: "rotation 4853ms linear infinite"
+    },
+    ".heart:nth-child(12)": {
+      transform: "translateX(101px) translateZ(2px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(12) .movable": {
+      WebkitAnimation: "drop 5000ms 1056ms linear infinite",
+      animation: "drop 5000ms 1056ms linear infinite"
+    },
+    ".heart:nth-child(12) .ring": {
+      WebkitAnimation: "wave 5000ms 4956ms ease-out infinite",
+      animation: "wave 5000ms 4956ms ease-out infinite"
+    },
+    ".heart:nth-child(12) .inner": {
+      WebkitAnimation: "rotation 2553ms linear infinite",
+      animation: "rotation 2553ms linear infinite"
+    },
+    ".heart:nth-child(13)": {
+      transform: "translateX(-449px) translateZ(84px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(13) .movable": {
+      WebkitAnimation: "drop 5000ms 841ms linear infinite",
+      animation: "drop 5000ms 841ms linear infinite"
+    },
+    ".heart:nth-child(13) .ring": {
+      WebkitAnimation: "wave 5000ms 4741ms ease-out infinite",
+      animation: "wave 5000ms 4741ms ease-out infinite"
+    },
+    ".heart:nth-child(13) .inner": {
+      WebkitAnimation: "rotation 4323ms linear infinite",
+      animation: "rotation 4323ms linear infinite"
+    },
+    ".heart:nth-child(14)": {
+      transform: "translateX(-361px) translateZ(139px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(14) .movable": {
+      WebkitAnimation: "drop 5000ms 1148ms linear infinite",
+      animation: "drop 5000ms 1148ms linear infinite"
+    },
+    ".heart:nth-child(14) .ring": {
+      WebkitAnimation: "wave 5000ms 5048ms ease-out infinite",
+      animation: "wave 5000ms 5048ms ease-out infinite"
+    },
+    ".heart:nth-child(14) .inner": {
+      WebkitAnimation: "rotation 3367ms linear infinite",
+      animation: "rotation 3367ms linear infinite"
+    },
+    ".heart:nth-child(15)": {
+      transform: "translateX(426px) translateZ(-302px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(15) .movable": {
+      WebkitAnimation: "drop 5000ms -798ms linear infinite",
+      animation: "drop 5000ms -798ms linear infinite"
+    },
+    ".heart:nth-child(15) .ring": {
+      WebkitAnimation: "wave 5000ms 3102ms ease-out infinite",
+      animation: "wave 5000ms 3102ms ease-out infinite"
+    },
+    ".heart:nth-child(15) .inner": {
+      WebkitAnimation: "rotation 2171ms linear infinite",
+      animation: "rotation 2171ms linear infinite"
+    },
+    ".heart:nth-child(16)": {
+      transform: "translateX(175px) translateZ(-503px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(16) .movable": {
+      WebkitAnimation: "drop 5000ms -1183ms linear infinite",
+      animation: "drop 5000ms -1183ms linear infinite"
+    },
+    ".heart:nth-child(16) .ring": {
+      WebkitAnimation: "wave 5000ms 2717ms ease-out infinite",
+      animation: "wave 5000ms 2717ms ease-out infinite"
+    },
+    ".heart:nth-child(16) .inner": {
+      WebkitAnimation: "rotation 3794ms linear infinite",
+      animation: "rotation 3794ms linear infinite"
+    },
+    ".heart:nth-child(17)": {
+      transform: "translateX(-385px) translateZ(440px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(17) .movable": {
+      WebkitAnimation: "drop 5000ms -2192ms linear infinite",
+      animation: "drop 5000ms -2192ms linear infinite"
+    },
+    ".heart:nth-child(17) .ring": {
+      WebkitAnimation: "wave 5000ms 1708ms ease-out infinite",
+      animation: "wave 5000ms 1708ms ease-out infinite"
+    },
+    ".heart:nth-child(17) .inner": {
+      WebkitAnimation: "rotation 2178ms linear infinite",
+      animation: "rotation 2178ms linear infinite"
+    },
+    ".heart:nth-child(18)": {
+      transform: "translateX(-349px) translateZ(-467px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(18) .movable": {
+      WebkitAnimation: "drop 5000ms -1689ms linear infinite",
+      animation: "drop 5000ms -1689ms linear infinite"
+    },
+    ".heart:nth-child(18) .ring": {
+      WebkitAnimation: "wave 5000ms 2211ms ease-out infinite",
+      animation: "wave 5000ms 2211ms ease-out infinite"
+    },
+    ".heart:nth-child(18) .inner": {
+      WebkitAnimation: "rotation 2221ms linear infinite",
+      animation: "rotation 2221ms linear infinite"
+    },
+    ".heart:nth-child(19)": {
+      transform: "translateX(-232px) translateZ(-367px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(19) .movable": {
+      WebkitAnimation: "drop 5000ms -230ms linear infinite",
+      animation: "drop 5000ms -230ms linear infinite"
+    },
+    ".heart:nth-child(19) .ring": {
+      WebkitAnimation: "wave 5000ms 3670ms ease-out infinite",
+      animation: "wave 5000ms 3670ms ease-out infinite"
+    },
+    ".heart:nth-child(19) .inner": {
+      WebkitAnimation: "rotation 4274ms linear infinite",
+      animation: "rotation 4274ms linear infinite"
+    },
+    ".heart:nth-child(20)": {
+      transform: "translateX(43px) translateZ(514px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(20) .movable": {
+      WebkitAnimation: "drop 5000ms -901ms linear infinite",
+      animation: "drop 5000ms -901ms linear infinite"
+    },
+    ".heart:nth-child(20) .ring": {
+      WebkitAnimation: "wave 5000ms 2999ms ease-out infinite",
+      animation: "wave 5000ms 2999ms ease-out infinite"
+    },
+    ".heart:nth-child(20) .inner": {
+      WebkitAnimation: "rotation 3171ms linear infinite",
+      animation: "rotation 3171ms linear infinite"
+    },
+    ".heart:nth-child(21)": {
+      transform: "translateX(-70px) translateZ(467px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(21) .movable": {
+      WebkitAnimation: "drop 5000ms -2782ms linear infinite",
+      animation: "drop 5000ms -2782ms linear infinite"
+    },
+    ".heart:nth-child(21) .ring": {
+      WebkitAnimation: "wave 5000ms 1118ms ease-out infinite",
+      animation: "wave 5000ms 1118ms ease-out infinite"
+    },
+    ".heart:nth-child(21) .inner": {
+      WebkitAnimation: "rotation 2639ms linear infinite",
+      animation: "rotation 2639ms linear infinite"
+    },
+    ".heart:nth-child(22)": {
+      transform: "translateX(-173px) translateZ(-3px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(22) .movable": {
+      WebkitAnimation: "drop 5000ms -767ms linear infinite",
+      animation: "drop 5000ms -767ms linear infinite"
+    },
+    ".heart:nth-child(22) .ring": {
+      WebkitAnimation: "wave 5000ms 3133ms ease-out infinite",
+      animation: "wave 5000ms 3133ms ease-out infinite"
+    },
+    ".heart:nth-child(22) .inner": {
+      WebkitAnimation: "rotation 4527ms linear infinite",
+      animation: "rotation 4527ms linear infinite"
+    },
+    ".heart:nth-child(23)": {
+      transform: "translateX(170px) translateZ(-160px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(23) .movable": {
+      WebkitAnimation: "drop 5000ms 1778ms linear infinite",
+      animation: "drop 5000ms 1778ms linear infinite"
+    },
+    ".heart:nth-child(23) .ring": {
+      WebkitAnimation: "wave 5000ms 5678ms ease-out infinite",
+      animation: "wave 5000ms 5678ms ease-out infinite"
+    },
+    ".heart:nth-child(23) .inner": {
+      WebkitAnimation: "rotation 2491ms linear infinite",
+      animation: "rotation 2491ms linear infinite"
+    },
+    ".heart:nth-child(24)": {
+      transform: "translateX(-413px) translateZ(-272px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(24) .movable": {
+      WebkitAnimation: "drop 5000ms 1931ms linear infinite",
+      animation: "drop 5000ms 1931ms linear infinite"
+    },
+    ".heart:nth-child(24) .ring": {
+      WebkitAnimation: "wave 5000ms 5831ms ease-out infinite",
+      animation: "wave 5000ms 5831ms ease-out infinite"
+    },
+    ".heart:nth-child(24) .inner": {
+      WebkitAnimation: "rotation 2413ms linear infinite",
+      animation: "rotation 2413ms linear infinite"
+    },
+    ".heart:nth-child(25)": {
+      transform: "translateX(188px) translateZ(696px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(25) .movable": {
+      WebkitAnimation: "drop 5000ms -265ms linear infinite",
+      animation: "drop 5000ms -265ms linear infinite"
+    },
+    ".heart:nth-child(25) .ring": {
+      WebkitAnimation: "wave 5000ms 3635ms ease-out infinite",
+      animation: "wave 5000ms 3635ms ease-out infinite"
+    },
+    ".heart:nth-child(25) .inner": {
+      WebkitAnimation: "rotation 3678ms linear infinite",
+      animation: "rotation 3678ms linear infinite"
+    },
+    ".heart:nth-child(26)": {
+      transform: "translateX(415px) translateZ(-589px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(26) .movable": {
+      WebkitAnimation: "drop 5000ms -1520ms linear infinite",
+      animation: "drop 5000ms -1520ms linear infinite"
+    },
+    ".heart:nth-child(26) .ring": {
+      WebkitAnimation: "wave 5000ms 2380ms ease-out infinite",
+      animation: "wave 5000ms 2380ms ease-out infinite"
+    },
+    ".heart:nth-child(26) .inner": {
+      WebkitAnimation: "rotation 4375ms linear infinite",
+      animation: "rotation 4375ms linear infinite"
+    },
+    ".heart:nth-child(27)": {
+      transform: "translateX(258px) translateZ(210px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(27) .movable": {
+      WebkitAnimation: "drop 5000ms 1492ms linear infinite",
+      animation: "drop 5000ms 1492ms linear infinite"
+    },
+    ".heart:nth-child(27) .ring": {
+      WebkitAnimation: "wave 5000ms 5392ms ease-out infinite",
+      animation: "wave 5000ms 5392ms ease-out infinite"
+    },
+    ".heart:nth-child(27) .inner": {
+      WebkitAnimation: "rotation 4280ms linear infinite",
+      animation: "rotation 4280ms linear infinite"
+    },
+    ".heart:nth-child(28)": {
+      transform: "translateX(47px) translateZ(263px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(28) .movable": {
+      WebkitAnimation: "drop 5000ms -2956ms linear infinite",
+      animation: "drop 5000ms -2956ms linear infinite"
+    },
+    ".heart:nth-child(28) .ring": {
+      WebkitAnimation: "wave 5000ms 944ms ease-out infinite",
+      animation: "wave 5000ms 944ms ease-out infinite"
+    },
+    ".heart:nth-child(28) .inner": {
+      WebkitAnimation: "rotation 4755ms linear infinite",
+      animation: "rotation 4755ms linear infinite"
+    },
+    ".heart:nth-child(29)": {
+      transform: "translateX(-13px) translateZ(-44px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(29) .movable": {
+      WebkitAnimation: "drop 5000ms 1963ms linear infinite",
+      animation: "drop 5000ms 1963ms linear infinite"
+    },
+    ".heart:nth-child(29) .ring": {
+      WebkitAnimation: "wave 5000ms 5863ms ease-out infinite",
+      animation: "wave 5000ms 5863ms ease-out infinite"
+    },
+    ".heart:nth-child(29) .inner": {
+      WebkitAnimation: "rotation 4945ms linear infinite",
+      animation: "rotation 4945ms linear infinite"
+    },
+    ".heart:nth-child(30)": {
+      transform: "translateX(449px) translateZ(-12px) scale3d(0.5, 0.5, 0.5)"
+    },
+    ".heart:nth-child(30) .movable": {
+      WebkitAnimation: "drop 5000ms -2285ms linear infinite",
+      animation: "drop 5000ms -2285ms linear infinite"
+    },
+    ".heart:nth-child(30) .ring": {
+      WebkitAnimation: "wave 5000ms 1615ms ease-out infinite",
+      animation: "wave 5000ms 1615ms ease-out infinite"
+    },
+    ".heart:nth-child(30) .inner": {
+      WebkitAnimation: "rotation 3556ms linear infinite",
+      animation: "rotation 3556ms linear infinite"
+    },
+    "@-webkit-keyframes blur": {
+      "0%": { filter: "blur(20px) grayscale(150%)" },
+      "100%": { filter: "blur(10px) grayscale(50%)" }
+    },
+    "@keyframes blur": {
+      "0%": { filter: "blur(20px) grayscale(150%)" },
+      "100%": { filter: "blur(10px) grayscale(50%)" }
+    },
+    "@-webkit-keyframes rotation": {
+      "0%": { transform: "rotateY(0deg)" },
+      "100%": { transform: "rotateY(360deg)" }
+    },
+    "@keyframes rotation": {
+      "0%": { transform: "rotateY(0deg)" },
+      "100%": { transform: "rotateY(360deg)" }
+    },
+    "@-webkit-keyframes drop": {
+      "0%": { transform: "translateY(-1000px)", opacity: 0 },
+      "80%": { transform: "translateY(0)", opacity: 3 },
+      "100%": { transform: "translateY(-40px)", opacity: 0 }
+    },
+    "@keyframes drop": {
+      "0%": { transform: "translateY(-1000px)", opacity: 0 },
+      "80%": { transform: "translateY(0)", opacity: 3 },
+      "100%": { transform: "translateY(-40px)", opacity: 0 }
+    },
+    "@-webkit-keyframes wave": {
+      "0%": {
+        transform:
+          "translate(-50%, -50%) rotateX(90deg) scale(0) translateZ(-37px)",
+        opacity: 2
+      },
+      "100%": {
+        transform:
+          "translate(-50%, -50%) rotateX(90deg) scale(2) translateZ(-37px)",
+        opacity: 0
+      }
+    },
+    "@keyframes wave": {
+      "0%": {
+        transform:
+          "translate(-50%, -50%) rotateX(90deg) scale(0) translateZ(-37px)",
+        opacity: 2
+      },
+      "100%": {
+        transform:
+          "translate(-50%, -50%) rotateX(90deg) scale(2) translateZ(-37px)",
+        opacity: 0
+      }
+    },
+    "@-webkit-keyframes wing": {
+      "0%": { transform: "rotateY(70deg)" },
+      "100%": { transform: "rotateY(0deg)" }
+    },
+    "@keyframes wing": {
+      "0%": { transform: "rotateY(70deg)" },
+      "100%": { transform: "rotateY(0deg)" }
+    }
+  }
+  
